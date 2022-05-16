@@ -1,0 +1,77 @@
+;;DEFINICION
+;;Funcion auxiliar
+(define (participaciones2 numeroparticipaciones2)
+  (cond
+    [(>= numeroparticipaciones2 1)0.1]
+    [(<= numeroparticipaciones2)0]))
+;Funciones principales
+;Fundamentos
+(define (fundamentos examen1 examen2 tarea1 tarea2 numeroparticipaciones2)
+  (+
+   (* 0.20 examen1)
+   (* 0.40 examen2)
+   (* 0.20 tarea1)
+   (* 0.20 tarea2)
+   (participaciones2 numeroparticipaciones2)))
+(define (clasificacion2 fundamentos)
+  (cond
+    [(and(>= fundamentos  0) (< fundamentos 2))'malo]
+    [(and(>= fundamentos 2) (< fundamentos 3))'deficiente]
+    [(and(>= fundamentos 3) (< fundamentos 3.8))'regular]
+    [(and(>= fundamentos 3.8) (< fundamentos 4.5))'bueno]
+    [(and(>= fundamentos 4.5) (<= fundamentos 5))'excelente]))
+;Calculo 1
+(define (calculo1 examen1 examen2 tarea1 tarea2 numeroparticipaciones2)
+  (+
+   (* 0.20 examen1)
+   (* 0.40 examen2)
+   (* 0.20 tarea1)
+   (* 0.20 tarea2)
+   (participaciones2 numeroparticipaciones2)))
+(define (clasificacioncalculo calculo1)
+  (cond
+    [(and(>= calculo1  0) (< calculo1 2))'malo]
+    [(and(>= calculo1 2) (< calculo1 3))'deficiente]
+    [(and(>= calculo1 3) (< calculo1 3.5))'regular]
+    [(and(>= calculo1 3.5) (< calculo1 4.5))'bueno]
+    [(and(>= calculo1 4.5) (<= calculo1 5))'excelente]))
+;Ingles 1
+(define (ingles1 examen1 examen2 tarea1 tarea2 numeroparticipaciones2)
+  (+
+   (* 0.20 examen1)
+   (* 0.40 examen2)
+   (* 0.20 tarea1)
+   (* 0.20 tarea2)
+   (participaciones2 numeroparticipaciones2)))
+(define (clasificacioningles ingles1)
+  (cond
+    [(and(>= ingles1 0) (< ingles1 3))'deficiente]
+    [(and(>= ingles1 3) (< ingles1 4))'regular]
+    [(and(>= ingles1 4) (< ingles1 4.5))'bueno]
+    [(and(>= ingles1 4.5) (<= ingles1 5))'excelente]))
+;Deporte
+(define (deporte examen1 examen2 tarea1 tarea2 numeroparticipaciones2)
+  (+
+   (* 0.20 examen1)
+   (* 0.40 examen2)
+   (* 0.20 tarea1)
+   (* 0.20 tarea2)
+   (participaciones2 numeroparticipaciones2)))
+(define (clasificaciondeporte deporte)
+  (cond
+    [(and(>= deporte 0) (< deporte 3))'malo]
+    [(and(>= deporte 3) (< deporte 4))'regular]
+    [(and(>= deporte 4) (<= deporte 5))'bueno]))
+;;PRUEBA
+(display "Fundamentos: ")
+(fundamentos 4 3 3 3.2 55)
+(clasificacion2 (fundamentos 4 3 3 3.2 55))
+(display "Calculo 1: ")
+(calculo1 5 4 3 4.2 22)
+(clasificacion2 (calculo1 5 4 3 4.2 55))
+(display "Ingles 1: ")
+(ingles1 4 3 2.9 4.2 10)
+(clasificacion2 (ingles1 4 3 2.9 4.2 10))
+(display "Deporte: ")
+(deporte 3 4 3.9 4.3 12)
+(clasificacion2 (deporte 4 3 2.9 4.2 10))
